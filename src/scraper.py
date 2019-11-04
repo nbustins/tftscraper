@@ -1,4 +1,5 @@
 import requests
+import sys
 from bs4 import BeautifulSoup
 
 class TftScraper():
@@ -6,6 +7,11 @@ class TftScraper():
     def __init__(self):
         self.url = "https://lolchess.gg/champions"
         self.data = []
+        self.atrsNames = ['Name','HealthLvl1','HealthLvl2','HealthLvl3',
+                        'AttackDamageLvl1','AttackDamageLvl2','AttackDamageLvl3',
+                        'DPSLvl1','DPSLvl2','DPSLvl3','Range','AttackSpeed',
+                        'Armor','MagicalResistance','Origin','Class','Cost']
+        self.data.append(self.atrsNames)
 
     def __download_html(self,url):
         page = requests.get(url)
@@ -73,6 +79,13 @@ class TftScraper():
 
         return(l)
 
+    def __getCost(self,bs):
+        divcost = bs.find_all("div", class_ = "guide-champion-detail__stats__value")
+        lvlcost = self.__cleanValue(divcost[0].div.text).split('/')
+
+        #We only want the cost of 1 champion
+        return lvlcost[0]
+
     def __getNameFromLink(self,l):
         l = l.split('/')
         return l[len(l)-1]
@@ -87,19 +100,21 @@ class TftScraper():
         for champion in championLinks:
             # Obtenim el contingut html
             html = self.__download_html(champion)
-
             # Obtenim els estats
             stats = self.__getStats(html)
-
             # Obtenim la classe i origen
             oc = self.__getOriginAndClass(html)
             # Mirem si es de tipus multiorigen
             if len(oc) > 2:
                 oc = self.__joinOrigin(oc)
 
-            #Add a new line of data
-            self.data.append([self.__getNameFromLink(champion)]+stats+oc)
-        print("Proces has finished.")
+            # Add a new line of data
+            self.data.append([self.__getNameFromLink(champion)]+stats+oc+[self.__getCost(html)])
+            # Show progress
+            sys.stdout.write('#')
+            sys.stdout.flush()
+
+        print("\n -> Proces has finished.")
 
     def exportCSV(self, filename):
         # Overwrite to the specified file.
