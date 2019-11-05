@@ -13,11 +13,13 @@ class TftScraper():
                         'Armor','MagicalResistance','Origin','Class','Cost']
         self.data.append(self.atrsNames)
 
+    # Returns the html content
     def __download_html(self,url):
         page = requests.get(url)
 
         return(BeautifulSoup(page.content,'html.parser'))
 
+    # Returns a list with all the champion links
     def __getChampionsLinks(self,html):
         links = []
         afilter = html.findAll('a')
@@ -28,13 +30,34 @@ class TftScraper():
 
         return(links)
 
+    # Return the value without spaces or new lines
     def __cleanValue(self,value):
         return value.replace('\n', ' ').replace('\r', '').replace(' ','')
+
 
     def __splitAndAdd(self,l,value):
         values = value.split("/")
         l.extend([values[0],values[1],values[3]])
 
+    # Given the src of attack speed image returns the value
+    def __getValueFromASimg(self,imgsrc):
+        switchImg = {
+            'ico-attack-distance-01.svg' : '1',
+            'ico-attack-distance-02.svg' : '2',
+            'ico-attack-distance-03.svg' : '3',
+            'ico-attack-distance-04.svg' : '4'
+        }
+
+        return switchImg.get(imgsrc,'-1')
+
+    # Given a value with an img attribute, returns the string of the src image given a value
+    def __getSrcfromImage(self,value):
+        value = value.img['src'].split('/')
+        value = value[len(value)-1]
+
+        return value
+
+    # Given a list with 2 origins and 1 class returns a list of length 3 with 1 composed origin and a class
     def __joinOrigin(self,l):
         s = ''
         i = 0
@@ -45,6 +68,7 @@ class TftScraper():
 
         return([s,l[len(l)-1]])
 
+    # Returns a list with the values of the stats
     def __getStats(self,bs):
 
         statsClean = []
@@ -60,17 +84,19 @@ class TftScraper():
             statName = self.__cleanValue(statName)
             statValue = self.__cleanValue(statValue)
 
-            #TODO: Tractar cas especial attack speed.
-
             # Split the special cases
             if statName in ("Health","AttackDamage","DPS"):
                 #get 3 val
                 self.__splitAndAdd(statsClean,statValue)
+            # Special case extract information of a image
+            elif statName == "AttackRange":
+                statsClean.append(self.__getValueFromASimg(self.__getSrcfromImage(s)))
             else:
                 statsClean.append(statValue)
 
         return(statsClean)
 
+    # Returns a list with the origin and the classs
     def __getOriginAndClass(self,bs):
         l = []
         ocraw = bs.find_all("div", class_ = "guide-champion-detail__synergy")
@@ -79,6 +105,7 @@ class TftScraper():
 
         return(l)
 
+    # Returns the value of the cost
     def __getCost(self,bs):
         divcost = bs.find_all("div", class_ = "guide-champion-detail__stats__value")
         lvlcost = self.__cleanValue(divcost[0].div.text).split('/')
@@ -86,6 +113,7 @@ class TftScraper():
         #We only want the cost of 1 champion
         return lvlcost[0]
 
+    # Returns the name of the champion link
     def __getNameFromLink(self,l):
         l = l.split('/')
         return l[len(l)-1]
