@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 class TftScraper():
 
     def __init__(self):
-        self.url = "https://lolchess.gg/champions"
+        self.url = "https://lolchess.gg/champions/set1/"
         self.data = []
         self.atrsNames = ['Name','HealthLvl1','HealthLvl2','HealthLvl3',
                         'AttackDamageLvl1','AttackDamageLvl2','AttackDamageLvl3',
@@ -110,7 +110,7 @@ class TftScraper():
         divcost = bs.find_all("div", class_ = "guide-champion-detail__stats__value")
         lvlcost = self.__cleanValue(divcost[0].div.text).split('/')
 
-        #We only want the cost of 1 champion
+        # We only want the cost of 1 champion
         return lvlcost[0]
 
     # Returns the name of the champion link
