@@ -11,7 +11,7 @@ urlcolor: blue
 ## Context
 
 Riot games ha creat recentment un videojoc anomenat Teamfight Tactics (TFT), aquest està guanyant molta popularitat i sembla que seguirà augmentant.
-El lloc triat "lolchess.gg" proporciona la informació necessària, ja que es dedica a ajudar als jugadors de diferents videojocs mostrant estadístiques. Aquest projecte pretén crear un scraper que sigui útil al llarg del temps. El TFT, com qualsevol altre videojoc online reb actualitzacions periòdicament i la idea és poder extreure nous datasets amb el mateix format, actualitzant els nous valors però mantinguen el format.
+El lloc triat [lolchess](https://lolchess.gg/) proporciona la informació necessària, ja que es dedica a ajudar als jugadors de diferents videojocs mostrant estadístiques. Aquest projecte pretén crear un scraper que sigui útil al llarg del temps. El TFT, com qualsevol altre videojoc online reb actualitzacions periòdicament i la idea és poder extreure nous datasets amb el mateix format, actualitzant els nous valors però mantinguen el format.
 
 ## Descripció
 
