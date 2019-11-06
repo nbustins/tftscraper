@@ -1,6 +1,6 @@
 from scraper import TftScraper
 
-output_file = "datasetChampions_v2.csv"
+output_file = "datasetChampions.csv"
 
 scraper = TftScraper();
 scraper.scrape();
