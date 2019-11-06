@@ -69,7 +69,7 @@ Per a cada campió es poden trobar les següents característiques:
 Com a creador del dataset sóc jugador del TFT durant l'estiu vaig tenir la idea d'intentar crear un algorisme per tal d'avaluar composicions de campions, encara que l'algorisme es trobava en un avançat estat el vaig abandonar perquè no tenia una forma optima d'obtenir les dades que necessitava. Cursant l'assignatura de Tipologia i cicle de vida de les dades vaig tenir l'oportunitat i vaig decidir intentar-ho. Aquestes dades crec que poden ser útils pels jugadors professionals, ja que podran avaluar molts aspectes tècnics del videojoc, es poden fer estudis de balanceig, algorismes que ajudin a decidir la millor jugada, etc. Crec que pot tenir moltes possibilitats.  
 
 ## Agraïments
-
+  
 Les dades han estat extretes de la web [lolchess](https://lolchess.gg/). S'han utilitzat tècniques de web scraping a través de la llibreria *Beutiful Soup 4* de Python.
   
 ## Llicència
