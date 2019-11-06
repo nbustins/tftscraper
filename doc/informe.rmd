@@ -10,8 +10,8 @@ urlcolor: blue
 
 ## Context
 
-Riot games ha creat recentment un videojoc anomenat Team Fight Tactics, aquest està guanyant molta popularitat i sembla que seguirà augmentant.
-El lloc triat "lolchess.gg" proporciona la informació necessària, ja que es dedica a ajudar als jugadors de diferents videojocs mostrant estadístiques. Aquest projecte pretén crear un scraper que sigui útil al llarg del temps. El TFT, com qualsevol altre videojoc online reb actualitzacions periòdicament i la idea és poder extreure nous datasets amb el mateix format actualitzant els nous valors però mantinguen el format.
+Riot games ha creat recentment un videojoc anomenat Teamfight Tactics (TFT), aquest està guanyant molta popularitat i sembla que seguirà augmentant.
+El lloc triat "lolchess.gg" proporciona la informació necessària, ja que es dedica a ajudar als jugadors de diferents videojocs mostrant estadístiques. Aquest projecte pretén crear un scraper que sigui útil al llarg del temps. El TFT, com qualsevol altre videojoc online reb actualitzacions periòdicament i la idea és poder extreure nous datasets amb el mateix format, actualitzant els nous valors però mantinguen el format.
 
 ## Descripció
 
@@ -31,21 +31,37 @@ El títol d'aquest dataset és **Teamfigth Tactics champions patch 9.21**. El no
 Per a cada campió es poden trobar les següents característiques:
 
 * **Name:** Nom del campió.
+
 * **HealthLvl1:** Valor de salut del campió a nivell 1.
+
 * **HealthLvl2:** Valor de salut del campió a nivell 2.
+
 * **HealthLvl3:** Valor de salut del campió a nivell 1.
+
 * **AttackDamageLvl1:** Valor de dany del campió a nivell 1.
+
 * **AttackDamageLvl2:** Valor de dany del campió a nivell 2.
+
 * **AttackDamageLvl3:** Valor de dany del campió a nivell 3.
+
 * **DPSLvl1:** Valor de dany per segon del campió a nivell 1.
+
 * **DPSLvl2:** Valor de dany per segon del campió a nivell 2.
+
 * **DPSLvl3:** Valor de dany per segon del campió a nivell 3.
+
 * **Range:** Rang d'atac del campió (1-4).
+
 * **AttackSpeed:** Valor de la velocitat d'atac del campió.
+
 * **Armor:** Valor de l'armadura del campió.
+
 * **MagicalResistance:** Valor de la resistència màgica del campió.
+
 * **Origin:** Origen o origens (separats per "-") del campió.
+
 * **Class:** Classe del campió.
+
 * **Cost:** Cost en monedes de cada peça del campió.
 
 ## Inspiració
@@ -57,6 +73,14 @@ Com a creador del dataset sóc jugador del TFT durant l'estiu vaig tenir la idea
 Les dades han estat extretes de la web [lolchess](https://lolchess.gg/). S'han utilitzat tècniques de web scraping a través de la llibreria *Beutiful Soup 4* de Python.
   
 ## Llicència
+
+La llicència triada és la **CC BY-SA 4.0 License** aquesta comporta les seguents condicions:
+
+* S'ha de proporcionar el nom del creador del conjunt de dades i indicar els canvis realitzats.
+
+* Es permet us comercial.
+
+* Les contribucaions realitzades a partir d'aquest treball hauran de tenir la mateixa llicència.
 
 ## Codi font i dataset
 
