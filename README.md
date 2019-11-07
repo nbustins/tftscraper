@@ -11,6 +11,6 @@ Aquesta Pràctica ha estat realitzada de forma individual per Narcís Bustins N�
 
 * **src/** Directori que conté tot el codi font.
 
-* **csv/** Directori que conté el dataset extret.
+* **csv/** Directori que conté els datasets extrets.
 
 * **doc/** Directori que conté l'informe del projecte.

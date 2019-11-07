@@ -18,7 +18,7 @@ El lloc triat [lolchess](https://lolchess.gg/) proporciona la informació necess
 Aquest conjunt de dades ha estat generat com a pràctica de Tipologia i cicle de vida de les dades. El dataset compta amb informació sobre els diferents campions del videojoc Teamfigth tactics desenvolupat per Riot Games. En concret es pot trobar la informació de l'actualització 9.21. 
 
 ## Títol del dataset
-
+  
 El títol d'aquest dataset és **Teamfigth Tactics champions patch 9.21**. El nom està format per l'abreviatura del videojoc al que fa referència,  el contingut del joc que es tracta (els campions) i finalment el número que marca la versió del videojoc.
 
 

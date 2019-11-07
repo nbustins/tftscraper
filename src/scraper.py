@@ -4,8 +4,13 @@ from bs4 import BeautifulSoup
 
 class TftScraper():
 
-    def __init__(self):
-        self.url = "https://lolchess.gg/champions/set1/"
+    def __init__(self,set):
+
+        switchSet = {
+                'set1' : 'set1/',
+                'set2' : 'set2/'
+        }
+        self.url = "https://lolchess.gg/champions/"+ switchSet.get(set,'set1')
         self.data = []
         self.atrsNames = ['Name','HealthLvl1','HealthLvl2','HealthLvl3',
                         'AttackDamageLvl1','AttackDamageLvl2','AttackDamageLvl3',
@@ -34,7 +39,7 @@ class TftScraper():
     def __cleanValue(self,value):
         return value.replace('\n', ' ').replace('\r', '').replace(' ','')
 
-
+    # Given a string with format A/B/C/D and a list, extends the list with [A,B,D]
     def __splitAndAdd(self,l,value):
         values = value.split("/")
         l.extend([values[0],values[1],values[3]])
@@ -96,7 +101,7 @@ class TftScraper():
 
         return(statsClean)
 
-    # Returns a list with the origin and the classs
+    # Returns a list with the origin and the class
     def __getOriginAndClass(self,bs):
         l = []
         ocraw = bs.find_all("div", class_ = "guide-champion-detail__synergy")
