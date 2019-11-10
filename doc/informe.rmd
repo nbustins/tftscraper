@@ -10,8 +10,9 @@ urlcolor: blue
 
 ## Context
 
-Riot games ha creat recentment un videojoc anomenat Teamfight Tactics (TFT), aquest està guanyant molta popularitat i sembla que seguirà augmentant.
-El lloc triat [lolchess](https://lolchess.gg/) proporciona la informació necessària, ja que es dedica a ajudar als jugadors de diferents videojocs mostrant estadístiques. Aquest projecte pretén crear un scraper que sigui útil al llarg del temps. El TFT, com qualsevol altre videojoc online reb actualitzacions periòdicament i la idea és poder extreure nous datasets amb el mateix format, actualitzant els nous valors però mantinguen el format.
+Riot games ha creat recentment un videojoc anomenat Teamfight Tactics (TFT), aquest està guanyant molta popularitat i sembla que seguirà augmentant. Aquest projecte pretén crear un scraper que sigui útil al llarg del temps. El TFT, com qualsevol altre videojoc online, s'actualitza periòdicament i la idea és poder extreure nous datasets amb el mateix format a cada nova actualització. (actualitzant els nous valors però mantenint el format).
+
+El lloc triat per tal d'obtenir la informació és [lolchess](https://lolchess.gg/), ja que proporciona tot el necessari per a construir el dataset. L'objectiu d'aquesta pàgina és ajudar als jugadors de diferents videojocs a partir de la informació que disposa (estadístiques internes dels videojocs, partides jugades pels jugadors, etc.). 
 
 ## Descripció
 
@@ -19,7 +20,7 @@ Aquest conjunt de dades ha estat generat com a pràctica de Tipologia i cicle de
 
 ## Títol del dataset
   
-El títol d'aquest dataset és **Teamfigth Tactics champions patch 9.21**. El nom està format per l'abreviatura del videojoc al que fa referència,  el contingut del joc que es tracta (els campions) i finalment el número que marca la versió del videojoc.
+El títol d'aquest dataset és **Teamfigth Tactics champions patch 9.21**. El títol està format pel nom del videojoc al qual fa referència,  el contingut del joc que es tracta (els campions) i finalment un número indicant la versió del videojoc que conté els valors emmagatzemats.
 
 
 ## Imatge descriptiva
@@ -36,7 +37,7 @@ Per a cada campió es poden trobar les següents característiques:
 
 * **HealthLvl2:** Valor de salut del campió a nivell 2.
 
-* **HealthLvl3:** Valor de salut del campió a nivell 1.
+* **HealthLvl3:** Valor de salut del campió a nivell 3.
 
 * **AttackDamageLvl1:** Valor de dany del campió a nivell 1.
 
@@ -66,7 +67,7 @@ Per a cada campió es poden trobar les següents característiques:
 
 ## Inspiració
 
-Com a creador del dataset sóc jugador del TFT durant l'estiu vaig tenir la idea d'intentar crear un algorisme per tal d'avaluar composicions de campions, encara que l'algorisme es trobava en un avançat estat el vaig abandonar perquè no tenia una forma optima d'obtenir les dades que necessitava. Cursant l'assignatura de Tipologia i cicle de vida de les dades vaig tenir l'oportunitat i vaig decidir intentar-ho. Aquestes dades crec que poden ser útils pels jugadors professionals, ja que podran avaluar molts aspectes tècnics del videojoc, es poden fer estudis de balanceig, algorismes que ajudin a decidir la millor jugada, etc. Crec que pot tenir moltes possibilitats.  
+Sóc jugador del TFT, durant l'estiu vaig tenir la idea d'intentar crear un algorisme per tal d'avaluar i recomanar composicions de campions, encara que l'algorisme es trobava en un avançat estat el vaig abandonar perquè no tenia una forma optima d'obtenir les dades que necessitava. Cursant l'assignatura de Tipologia i cicle de vida de les dades vaig tenir l'oportunitat i vaig decidir intentar-ho. Aquestes dades crec que poden ser útils pels jugadors professionals, ja que podran avaluar molts aspectes tècnics del videojoc, es poden fer estudis de balanceig, algorismes que ajudin a decidir la millor jugada, valorar la millor composició, etc. Crec que pot tenir moltes possibilitats.  
 
 ## Agraïments
   
