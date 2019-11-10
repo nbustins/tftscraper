@@ -35,7 +35,7 @@ class TftScraper():
 
         return(links)
 
-    # Return the value without spaces or new lines
+    # Returns value without spaces or new lines
     def __cleanValue(self,value):
         return value.replace('\n', ' ').replace('\r', '').replace(' ','')
 
@@ -62,7 +62,7 @@ class TftScraper():
 
         return value
 
-    # Given a list with 2 origins and 1 class returns a list of length 3 with 1 composed origin and a class
+    # Given a list with origins and 1 class returns a list of length 2 where the first position is a string of all origins and the second is the class.
     def __joinOrigin(self,l):
         s = ''
         i = 0
@@ -101,7 +101,7 @@ class TftScraper():
 
         return(statsClean)
 
-    # Returns a list with the origin and the class
+    # Returns a list with the origins and the class
     def __getOriginAndClass(self,bs):
         l = []
         ocraw = bs.find_all("div", class_ = "guide-champion-detail__synergy")
@@ -131,13 +131,13 @@ class TftScraper():
 
         # Extract the information for each champion
         for champion in championLinks:
-            # Obtenim el contingut html
+            # Get the html content
             html = self.__download_html(champion)
-            # Get stats
+            # Get the stats
             stats = self.__getStats(html)
-            # Obtenim la classe i origen
+            # Get the origin and the class
             oc = self.__getOriginAndClass(html)
-            # Mirem si es de tipus multiorigen
+            # Check if there are more than 1 origin.
             if len(oc) > 2:
                 oc = self.__joinOrigin(oc)
 
