@@ -133,7 +133,7 @@ class TftScraper():
         for champion in championLinks:
             # Obtenim el contingut html
             html = self.__download_html(champion)
-            # Obtenim els estats
+            # Get stats
             stats = self.__getStats(html)
             # Obtenim la classe i origen
             oc = self.__getOriginAndClass(html)
